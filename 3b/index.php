@@ -5,41 +5,32 @@
 </head>
 <body>
 
-	<form action="" method="POST">
-		<input type="text" name="first" />
-		<select name="method">
-    		<option>+</option>
-    		<option>_</option>
-    		<option>*</option>
-   			 <option>/</option>
+	<form>
+		<input type="text" name="x" />
+		<select name="op">
+    		<option value="add">+</option>
+    		<option value="sub">_</option>
+    		<option value="mult">*</option>
+   			<option value="div">/</option>
 		</select>
-		<input type="text" name="second" />
-		<input type="submit" value="Equals" />
+		<input type="text" name="y" />
+		<input type="submit"/>
 	</form>
 
 <?php
+    if ($_GET)  {
 
-	if (isset($_POST['first']) && isset($_POST['second'])) {
-   	 	$first = $_POST['first'];
-    	$second = $_POST['second'];
-    	$method = $_POST['method'];
-    	switch($method) {
-        	case '+':
-            	$result = $first + $second;
-            	break;
-        	case '-':
-            	$result = $first - $second;
-            	break;
-        	case '*':
-            	$result = $first * $second;
-            	break;
-        	case '/':
-       			$result = $first / $second;
-           		break;
-        	default:
-        		$result = 'undefined operation';
-            	break;
-    } echo $result;
-}
-
+        if ($_GET["op"]== "add") {
+            echo ($_GET["x"] + $_GET["y"]);
+        }
+        if ($_GET["op"]== "sub") {
+            echo ($_GET["x"] - $_GET["y"]);
+        }
+        if ($_GET["op"]== "mult") {
+            echo ($_GET["x"] * $_GET["y"]);
+        }
+        if ($_GET["op"]== "div") {
+            echo ($_GET["x"] / $_GET["y"]);
+        }
+    }
 ?>
