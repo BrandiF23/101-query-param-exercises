@@ -2,23 +2,25 @@
 <html>
 <head>
 	<title>4 Example</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo (!$style)?'normal':$style ?>.css" />
-	
+	<?php
+		if ($_GET["red"] == "Magic") {
+	?>
+		<link rel="stylesheet" type="text/css" href="style2.css">
+	<?php
+		} else { 
+	?>
+		<link rel="stylesheet" type="text/css" href="style1.css">
+	<?php
+		}
+	?>
 </head>
 <body>
 
 	<form>
 
-		</select>
-		<input type="submit" value="Color Switch" />
+		<input name="red" type="submit" value="Magic"/>
+
 	</form>
 
-<?php
-	
-	if(condition1 === true) {
-    	echo "<button style=\"background-color: blue;\">Blue</button>";
-	} else {
-    	echo "<button style=\"background-color: red;\">Red</button>";
-	}
-
-?>
+</body>
+</html>
